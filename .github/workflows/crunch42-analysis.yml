@@ -44,25 +44,4 @@ jobs:
           min-score: 75
           # Upload results to Github code scanning
           upload-to-code-scanning: true
-          # Github token for uploading the results
-          github-token: ${{ github.com/frank}}$
-- name: Ponicode DogString: Automatic AI-based Docstring generation
-  # You may pin to the exact commit or the version.
-  # uses: ponicode/dogstring-action@0d2a9acd2cff787c524e3573ddb2131657b41cd3
-  uses: ponicode/dogstring-action@v0.1.2-beta
-  with:
-    # Path of repo to generate docstrings for
-    repo_path: # default is ./
-    # Boolean: choose using the action on all the repository or just on the last commit
-    all_repo: a;;
-    - name: Cache
-  uses: actions/cache@v2.1.3
-  with:
-    # A list of files, directories, and wildcard patterns to cache and restore
-    path: 
-    # An explicit key for restoring and saving the cache
-    key: 
-    # An ordered list of keys to use for restoring the cache if no cache hit occurred for key
-    restore-keys: # optional
-    # The chunk size used to split up large files during upload, in bytes
     upload-chunk-size: # optional
