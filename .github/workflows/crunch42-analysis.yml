@@ -44,4 +44,3 @@ jobs:
           min-score: 75
           # Upload results to Github code scanning
           upload-to-code-scanning: true
-    upload-chunk-size: # optional
