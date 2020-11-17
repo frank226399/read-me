@@ -40,11 +40,28 @@ jobs:
           # Please create free account at https://platform.42crunch.com/register
           # Follow these steps to configure API_TOKEN https://docs.42crunch.com/latest/content/tasks/integrate_github_actions.htm
           api-token: ${{ secrets.API_TOKEN }}
-          # Fail if any OpenAPI file scores lower than 75
-          min-score: 75
-          # Upload results to Github code scanning
-          upload-to-code-scanning: true
-- name: ansible-lint
+          # Fail if any OpenAPI file scores lower than 25
+          min-score: 25
+- name: code scan
   # You may pin to the exact commit or the version.
   # uses: ansible/ansible-lint-action@38e9ebdc9c3c71e66e2a3e0a09f0b6c8bc005e46
   uses: ansible/ansible-lint-action@v4.1.0.post0
+- name: OWASP ZAP Baseline Scan
+  # You may pin to the exact commit or the version.
+  # uses: zaproxy/action-baseline@acd8e997263688cb49cb5ff8247a4b2758c548ab
+  uses: zaproxy/action-baseline@v0.4.0
+  with:
+    # GitHub Token to create issues in the repository
+    token: # optional, default is ${{ github.token }}
+    # Target URL
+    target: 
+    # Relative path of the ZAP configuration file
+    rules_file_name: # optional
+    # The Docker file to be executed
+    docker_name: # default is owasp/zap2docker-stable
+    # Additional command line options
+    cmd_options: # optional
+    # The title for the GitHub issue to be created
+    issue_title: # optional, default is ZAP Scan Baseline Report
+    # The action status will be set to fail if ZAP identifies any alerts during the baseline scan
+    fail_action: # optional
