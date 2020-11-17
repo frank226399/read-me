@@ -40,8 +40,6 @@ jobs:
           # Please create free account at https://platform.42crunch.com/register
           # Follow these steps to configure API_TOKEN https://docs.42crunch.com/latest/content/tasks/integrate_github_actions.htm
           api-token: ${{ secrets.API_TOKEN }}
-          # Fail if any OpenAPI file scores lower than 75
-          min-score: 75
 - name: code scan
   # You may pin to the exact commit or the version.
   # uses: ansible/ansible-lint-action@38e9ebdc9c3c71e66e2a3e0a09f0b6c8bc005e46
@@ -65,3 +63,4 @@ jobs:
     issue_title: # optional, default is ZAP Scan Baseline Report
     # The action status will be set to fail if ZAP identifies any alerts during the baseline scan
     fail_action: # optional
+ymal.ci/cd.com
